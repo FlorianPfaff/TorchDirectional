@@ -4,7 +4,7 @@ import torch
 from torch.fft import rfft, irfft
 from torch import real, imag, cos, sin
 from matplotlib.pyplot import plot, show
-from WDDistributionTorch import WDDistribution
+from .WDDistributionTorch import WDDistribution
 import numpy as np
 from numpy import pi
 import scipy.integrate as integrate
