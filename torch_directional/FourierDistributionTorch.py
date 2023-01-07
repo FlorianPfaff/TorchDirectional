@@ -1,5 +1,5 @@
 # @author Florian Pfaff, pfaff@kit.edu
-# @date 2021
+# @date 2021-2023
 import torch
 from torch.fft import rfft, irfft
 from torch import real, imag, cos, sin

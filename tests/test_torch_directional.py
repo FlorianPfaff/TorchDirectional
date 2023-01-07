@@ -1,8 +1,8 @@
 # @author Florian Pfaff, pfaff@kit.edu
-# @date 2021
+# @date 2021-2023
 import unittest
-from FourierDistributionTorch import FourierDistribution
-from VMDistributionTorch import VMDistribution
+from torch_directional.FourierDistributionTorch import FourierDistribution
+from torch_directional.VMDistributionTorch import VMDistribution
 import torch
 from math import pi
 import numpy as np
@@ -88,5 +88,3 @@ class TestFourierDistribution(unittest.TestCase):
             hel_like_distance,_ = integrate.quad(lambda x: (torch.sqrt(dist1.pdf(torch.tensor(x).type_as(dist1.mu).view(1,-1)))-torch.sqrt(dist2.pdf(torch.tensor(x).type_as(dist1.mu).view(1,-1))))**2,0,2*pi)
             fd_diff = fd1-fd2
             np.testing.assert_array_almost_equal(fd_diff.integral().cpu(),hel_like_distance)
-
-unittest.main()
