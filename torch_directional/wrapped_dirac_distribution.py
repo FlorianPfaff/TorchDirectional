@@ -4,7 +4,7 @@ import torch
 from matplotlib.pyplot import plot
 from math import sqrt
 
-class WDDistribution:
+class WrappedDiracDistribution:
     def __init__(self, d, w = None):
         self.d = d
         self.w = w
