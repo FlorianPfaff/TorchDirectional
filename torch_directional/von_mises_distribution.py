@@ -4,7 +4,7 @@ from math import pi
 import scipy.special
 import torch
 
-class VMDistribution:
+class VonMisesDistribution:
     def __init__(self, mu, kappa, norm_const = None):
         assert kappa >= 0
         self.mu = mu

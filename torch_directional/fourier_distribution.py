@@ -4,11 +4,12 @@ import torch
 from torch.fft import rfft, irfft
 from torch import real, imag, cos, sin
 from matplotlib.pyplot import plot, show
-from .WDDistributionTorch import WDDistribution
+from .wrapped_dirac_distribution import WrappedDiracDistribution
 import numpy as np
 from numpy import pi
 import scipy.integrate as integrate
 import math
+import warnings
 
 """
 Fourier Distribution. The real and complex ones and the option to have it multiplied_by_n or not serve to use the minimum number of operations and thus optimize the graph
@@ -213,10 +214,10 @@ class FourierDistribution:
         
     @staticmethod
     def from_distribution(dist, n, transformation, store_values_multiplied_by_n = True):
-        if isinstance(dist,WDDistribution):
+        if isinstance(dist,WrappedDiracDistribution):
             fd = FourierDistribution(torch.conj(dist.trigonometric_moment(n, whole_range=True))/(2*pi),transformation,multiplied_by_n=False)
             if store_values_multiplied_by_n:
-                raise Warning('Scaling up for WD (this not recommended).')
+                warnings.warn('Scaling up for WD (this not recommended).')
                 fd.c = fd.c*fd.n
         else:
             xs = torch.linspace(0,2*pi,n+1).type_as(dist.get_params()[0])
