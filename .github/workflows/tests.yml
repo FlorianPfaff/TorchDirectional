@@ -1,0 +1,26 @@
+name: Python Package Testing with Conda
+
+on: [push, pull_request] # yamllint disable-line rule:truthy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: pl
+        environment-file: environment.yml
+        auto-activate-base: false
+
+    - name: Run commands
+      shell: bash -l {0}
+      run: |
+        conda info --all
+        ls -al
+        python -c 'import sys; print(sys.version_info[:])'
+        python -m tap | tee taptestresults.tap
