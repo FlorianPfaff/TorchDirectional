@@ -7,10 +7,7 @@ Then, run the test cases via
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O $WORKSPACE/miniconda.sh
     bash $WORKSPACE/miniconda.sh -b -p $WORKSPACE/miniconda
     . $WORKSPACE/miniconda/bin/activate
-    conda create -n "pl" python=3.10
-    conda activate pl
-    conda install -c conda-forge pytorch-lightning matplotlib scipy
-    pip install tap.py
+    conda env create -f environment.yml
     python -m tap | tee taptestresults.tap
 
 Author: Florian Pfaff, pfaff@kit.edu
