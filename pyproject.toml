@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "torchdirectional"
+description = "Pytorch variants of specific functions for directional estimation."
+readme = "README.md"
+authors = ["Florian Pfaff <pfaff@kit.edu>"]
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytorch-lightning = "*"
+matplotlib = "*"
+scipy = "*"
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.2"
+pytest = "*"
+tap.py = "*"
