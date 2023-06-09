@@ -1,0 +1,11 @@
+name: pl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch-lightning
+  - matplotlib
+  - scipy
+  - pip
+  - pip:
+    - tap.py
