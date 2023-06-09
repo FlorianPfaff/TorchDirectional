@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "torchdirectional"
+name = "torch_directional"
 description = "Pytorch variants of specific functions for directional estimation."
 readme = "README.md"
 authors = ["Florian Pfaff <pfaff@kit.edu>"]
